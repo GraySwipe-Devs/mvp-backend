@@ -3,7 +3,9 @@ const app = express();
 const dotenv = require('dotenv'); 
 const cors = require('cors');
 const morgan = require('morgan')
-const apiRoutes = require("./routes/")
+const db = require('./config/db');
+const { default: connectDB } = require('./config/db');
+// const apiRoutes = require("./routes/")
 app.use(
     cors({
         origin: "*",
@@ -16,6 +18,7 @@ app.use(morgan("tiny"));
 
 // app.use('/api' , )
 const PORT = process.env.PORT || 1337;
+db()
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
   });

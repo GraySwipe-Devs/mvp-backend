@@ -1,16 +1,22 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const connectDB = () => {
-  mongoose
-    .connect(process.env.DB_URL, {
+  try {
+    mongoose.connect(process.env.DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    })
-    .then(() => console.log("DB connected sucessfully! "))
-    .catch((err) => {
-      console.log(err);
-      process.exit(1);
     });
+
+    mongoose.connection.on("error", (err) => {
+      console.log("err", err);
+    });
+
+    mongoose.connection.on("connected", (err, res) => {
+      console.log("DB Connection establish");
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
-export default connectDB;
+module.exports = connectDB;
