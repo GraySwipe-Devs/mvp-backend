@@ -25,6 +25,11 @@ const salonSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    salon_id: {
+        type: String,
+        required: true,
+        unique: true
+    }
   });
   
   const Salon = mongoose.model("Salon", salonSchema);
