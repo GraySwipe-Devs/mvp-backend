@@ -29,6 +29,10 @@ const salonSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    is_deleted : {
+        type : Boolean,
+        default : false,
     }
   });
   

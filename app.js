@@ -5,7 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan')
 const db = require('./config/db');
 const { default: connectDB } = require('./config/db');
-// const apiRoutes = require("./routes/")
+const apiRoutes = require("./routes/api")
 app.use(
     cors({
         origin: "*",
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 
-// app.use('/api' , )
+app.use('/v1/api' , apiRoutes )
 const PORT = process.env.PORT || 1337;
 db()
 app.listen(PORT, () => {

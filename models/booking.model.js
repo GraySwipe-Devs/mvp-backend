@@ -18,6 +18,10 @@ const bookingSchema = new mongoose.Schema({
     status : {
         type: String,
         enum : ['accept' , 'reject' , 'waiting']
+    },
+    is_cancelled: {
+        type: Boolean,
+        default: false
     }
   },
   { timestamps: { createdAt: "created_at", updatedAt: "modified_on" } }
