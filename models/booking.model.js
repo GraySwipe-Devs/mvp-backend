@@ -15,6 +15,11 @@ const bookingSchema = new mongoose.Schema({
         type: Map,
         of: String
     },
+    timing : {
+        type: String,
+        requried: true
+    }
+    ,
     status : {
         type: String,
         enum : ['accept' , 'reject' , 'waiting'],
