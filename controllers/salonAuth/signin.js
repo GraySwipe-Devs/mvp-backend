@@ -8,16 +8,16 @@ const signin = async(req,res) => {
 
     const data = {email, password};
 
-    const loginSchema = Joi.object({
-        email: Joi.string().pattern(new RegExp('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$')) ,
-        password : Joi.string.pattern(new RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$')),
-    })
+    // const loginSchema = Joi.object({
+    //     email: Joi.string().pattern(new RegExp('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$')) ,
+    //     password : Joi.string.pattern(new RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$')),
+    // })
                 try{
                     const salon = await Salon.findOne({email});
-                    if(!user){
+                    if(!salon){
                         res.status(404).json({
                             status : 'error',
-                            message : 'user not found',
+                            message : 'salon not found',
                             code : 404
                         })
                         return;
