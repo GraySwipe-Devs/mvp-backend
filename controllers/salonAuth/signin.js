@@ -12,17 +12,6 @@ const signin = async(req,res) => {
         email: Joi.string().pattern(new RegExp('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$')) ,
         password : Joi.string.pattern(new RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8, 20}$')),
     })
-
-    Joi.validate(data, loginSchema, (err, value)=> {
-        if(err){
-            res.status(401).json({
-                code: 401,
-                message: 'validations error',
-                status: 'error',
-                data : data
-              });
-              return;
-            }else{
                 try{
                     const salon = await Salon.findOne({email});
                     if(!user){
@@ -63,7 +52,6 @@ const signin = async(req,res) => {
                     })
                 }
             }
-    })
-}
+
 
 module.exports = {signin}
