@@ -10,7 +10,7 @@ const signup = async(req,res)=>{
     const {name, ownerName, email, phoneNumber, password: plainTextPassword, comfirmPassword, location } = req.body;
 
     const data = {name, ownerName, email, phoneNumber, plainTextPassword, comfirmPassword};
-
+    let service = {}
     try{
         const password = await bcrypt.hash(plainTextPassword, 10); // salt is 10;
 
@@ -19,6 +19,7 @@ const signup = async(req,res)=>{
             ownerName,
             email,
             phoneNumber,
+            service,
             password,
             salon_id : uuidv4(),
             location
