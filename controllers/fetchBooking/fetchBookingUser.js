@@ -1,13 +1,13 @@
-const Salons = require('../../models/booking.model');
-const filter = {};
+const Booking = require('../../models/booking.model');
 
-const getSalons = async(req,res) => {
+const fetchBookingUser = async(req,res) => {
     try{
 
-        const all = await Salons.find(filter);
+        const id = req.params.user_id;
+        const all = await Booking.find(id);
         res.status(200).json({
             code : 200,
-            message : "List of Salons",
+            message : "List of Bookings",
             list : all
         })
 
