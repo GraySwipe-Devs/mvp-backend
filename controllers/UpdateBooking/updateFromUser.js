@@ -9,12 +9,12 @@ const updateFromSalon = async(req,res) => {
     const id = req.params.booking_id;
     const {serviceUpdate , timingsUpdate} = req.body;
 
-    const oldBooking = await Booking.findOne({id})
+    const oldBooking = await Booking.findOne({booking_id :id})
 
     try{
 
-        const updatedBooking = await Booking.findOneAndUpdate({id}, {service : serviceUpdate}, {new: true});
-        const updatedBooking2 = await Booking.findOneAndUpdate({id}, {timings : timingsUpdate}, {new: true});
+        const updatedBooking = await Booking.findOneAndUpdate({booking_id :id}, {service : serviceUpdate}, {new: true});
+        const updatedBooking2 = await Booking.findOneAndUpdate({booking_id :id}, {timings : timingsUpdate}, {new: true});
         res.status(200).json({
             code : 200,
             message : "Status of the booking successfully changed",

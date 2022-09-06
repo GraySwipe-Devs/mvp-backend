@@ -1,11 +1,11 @@
 const Booking = require('../../models/booking.model');
 
 
-const fetchBookingUser = async(req,res) => {
+const fetchBookingSalon = async(req,res) => {
     try{
 
         const id = req.params.salon_id;
-        const all = await Booking.find(id);
+        const all = await Booking.find({salon_id : id});
         res.status(200).json({
             code : 200,
             message : "List of Bookings",
@@ -21,4 +21,4 @@ const fetchBookingUser = async(req,res) => {
     }
 }
 
-module.exports = { fetchBookingUser }
+module.exports = { fetchBookingSalon }

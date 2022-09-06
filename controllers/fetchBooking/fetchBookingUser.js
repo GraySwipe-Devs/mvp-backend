@@ -4,7 +4,7 @@ const fetchBookingUser = async(req,res) => {
     try{
 
         const id = req.params.user_id;
-        const all = await Booking.find(id);
+        const all = await Booking.find({ user_id: id});
         res.status(200).json({
             code : 200,
             message : "List of Bookings",

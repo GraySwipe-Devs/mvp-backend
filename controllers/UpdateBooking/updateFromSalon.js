@@ -9,11 +9,11 @@ const updateFromSalon = async(req,res) => {
     const id = req.params.booking_id;
     const {newStatus} = req.body;
 
-    const oldBooking = await Booking.findOne({id})
-
+    const oldBooking = await Booking.findOne({ booking_id : id})
+    console.log(oldbooking);
     try{
 
-        const updatedBooking = await Booking.findOneAndUpdate({id}, {status : newStatus}, {new: true});
+        const updatedBooking = await Booking.findOneAndUpdate({booking_id :id}, {status : newStatus}, {new: true});
         res.status(200).json({
             code : 200,
             message : "Status of the booking successfully changed",

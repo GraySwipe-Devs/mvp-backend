@@ -23,7 +23,7 @@ const bookingSchema = new mongoose.Schema({
     status : {
         type: String,
         enum : ['accept' , 'reject' , 'waiting', 'complete'],
-        default: waiting
+        default: 'waiting'
     },
     is_cancelled: {
         type: Boolean,
@@ -33,5 +33,5 @@ const bookingSchema = new mongoose.Schema({
   { timestamps: { createdAt: "created_at", updatedAt: "modified_on" } }
   );
   
-  const Booking = mongoose.model("Salon", bookingSchema);
+  const Booking = mongoose.model("Booking", bookingSchema);
   module.exports = Booking;
