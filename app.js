@@ -17,8 +17,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 
 app.use('/api' , apiRoutes )
+
 const PORT = process.env.PORT || 1337;
+
 db()
+
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
-  });
+});
+
+module.exports = app;
