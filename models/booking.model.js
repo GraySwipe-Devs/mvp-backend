@@ -11,9 +11,9 @@ const bookingSchema = new mongoose.Schema({
         requried: true,
         unique: true
     },
-    service_details :{
-        type: Map,
-        of: String
+    amount :{
+        type: Number,
+        required : true
     },
     timing : {
         type: String,
