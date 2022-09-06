@@ -3,7 +3,7 @@ const Booking = require('../../models/booking.model');
 const fetchBookingUser = async(req,res) => {
     try{
 
-        const id = req.params.user_id;
+        const id = req.query.user_id;
         const all = await Booking.find({ user_id: id});
         res.status(200).json({
             code : 200,

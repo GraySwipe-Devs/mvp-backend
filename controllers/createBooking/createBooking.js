@@ -2,12 +2,13 @@ const Booking = require('../../models/booking.model')
 const { v4: uuidv4 } = require('uuid');
 
 const createBooking = async(req,res)=>{
-    const {user_id,  amount, timing, status, is_cancelled} = req.body;
+    const {user_id, salon_id , amount, timing, status, is_cancelled} = req.body;
     let booking_id_server = uuidv4()
     try{
 
         const newBooking = await Booking.create({
             user_id, 
+            salon_id ,
             booking_id : booking_id_server, 
             amount, 
             timing  

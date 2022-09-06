@@ -19,16 +19,22 @@ const createBooking = require('./user/createBooking.user');
 
 router.use("/v1/salon/register" , signup);
 router.use("/v1/salon/login" , signin);
+
+// get salon list
 router.use("/v1/salons/getsalon" , getSalon);
+
+// update from salon
 router.use('/v1/salon/booking/update' , updateFromSalon )
 
 router.use("/v1/user/register" , userSignin);
 router.use("/v1/user/login" , userLogin);
 router.use("/v1/user/booking/update", userUpdate)
 
+// fetching bookings
 router.use("/v1/user/fetchBooking" , fetchBookingUser);
 router.use("/v1/salon/fetchBooking", fetchBookingSalon);
 
+//creating booking
 router.use("/v1/user/createbooking" , createBooking)
 
 module.exports = router;

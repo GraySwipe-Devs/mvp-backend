@@ -4,7 +4,7 @@ const Booking = require('../../models/booking.model');
 const fetchBookingSalon = async(req,res) => {
     try{
 
-        const id = req.params.salon_id;
+        const id = req.query.salon_id;
         const all = await Booking.find({salon_id : id});
         res.status(200).json({
             code : 200,
