@@ -9,6 +9,7 @@ const updateFromSalon = require('./salon/updatesFromSalon.salon');
 
 const userSignin = require('./user/signup.user');
 const userLogin = require('./user/login.user');
+const userUpdate = require("./user/updateFromUser.user");
 
 const fetchBookingUser = require('./user/fetchBookingUser.user');
 const fetchBookingSalon = require('./salon/fetchBookingSalon.salon')
@@ -19,10 +20,11 @@ const createBooking = require('./user/createBooking.user');
 router.use("/v1/salon/register" , signup);
 router.use("/v1/salon/login" , signin);
 router.use("/v1/salons/getsalon" , getSalon);
-router.use('/v1/salon/booking/update/:booking_id' , updateFromSalon )
+router.use('/v1/salon/booking/update' , updateFromSalon )
 
 router.use("/v1/user/register" , userSignin);
 router.use("/v1/user/login" , userLogin);
+router.use("v1/user/booking/update", userUpdate)
 
 router.use("/v1/user/fetchBooking" , fetchBookingUser);
 router.use("/v1/salon/fetchBooking", fetchBookingSalon);

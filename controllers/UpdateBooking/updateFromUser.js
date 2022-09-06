@@ -1,19 +1,17 @@
 const Booking = require('../../models/booking.model');
 const jwt = require('jsonwebtoken');
 
-const updateFromSalon = async(req,res) => {
-    const head = req.headers.authorization;
-    const token = head.split(' ');
-    const decoded = jwt.verify(token[1], process.env.JWT_AUTH_SECRET);
+const updateFromUser = async(req,res) => {
+    // const head = req.headers.authorization;
+    // const token = head.split(' ');
+    // const decoded = jwt.veri qfy(token[1], process.env.JWT_AUTH_SECRET);
 
-    const id = req.params.booking_id;
-    const {serviceUpdate , timingsUpdate} = req.body;
+    const id = req.query.booking_id;
+    const { timingsUpdate} = req.body;
 
     const oldBooking = await Booking.findOne({booking_id :id})
 
     try{
-
-        const updatedBooking = await Booking.findOneAndUpdate({booking_id :id}, {service : serviceUpdate}, {new: true});
         const updatedBooking2 = await Booking.findOneAndUpdate({booking_id :id}, {timings : timingsUpdate}, {new: true});
         res.status(200).json({
             code : 200,
@@ -33,4 +31,4 @@ const updateFromSalon = async(req,res) => {
 
 }
 
-module.exports= {updateFromSalon}
+module.exports= {updateFromUser}
