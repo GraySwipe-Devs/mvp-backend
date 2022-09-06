@@ -1,7 +1,7 @@
 const Booking = require('../../models/booking.model');
 
 
-const fetchBookingUser = async(req,res) => {
+const fetchBookingSalon = async(req,res) => {
     try{
 
         const id = req.params.salon_id;
@@ -21,4 +21,4 @@ const fetchBookingUser = async(req,res) => {
     }
 }
 
-module.exports = { fetchBookingUser }
+module.exports = { fetchBookingSalon }
