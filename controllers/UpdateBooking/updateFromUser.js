@@ -13,10 +13,10 @@ const updateFromUser = async(req,res) => {
 
     const oldBooking = await Booking.findOne({booking_id :id})
     try{
-        const updatedBooking2 = await Booking.findOneAndUpdate({booking_id :id}, {timings : timingsUpdate}, {new: true});
+        const updatedBooking2 = await Booking.findOneAndUpdate({booking_id :id}, {timing : timingsUpdate}, {new: true});
         res.status(200).json({
             code : 200,
-            message : "Status of the booking successfully changed",
+            message : "booking successfully updated",
             booking : updatedBooking2
         })
 
