@@ -24,7 +24,7 @@ router.use('/v1/salon/booking/update' , updateFromSalon )
 
 router.use("/v1/user/register" , userSignin);
 router.use("/v1/user/login" , userLogin);
-router.use("v1/user/booking/update", userUpdate)
+router.use("/v1/user/booking/update", userUpdate)
 
 router.use("/v1/user/fetchBooking" , fetchBookingUser);
 router.use("/v1/salon/fetchBooking", fetchBookingSalon);
