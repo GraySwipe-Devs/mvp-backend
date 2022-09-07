@@ -31,10 +31,7 @@ const signin = async(req,res) => {
                             code : 200,
                             message : 'salon signed in successfully',
                             token : token,
-                            data : {
-                                name : salon.name,
-                                email : salon.email
-                            }
+                            user
                         })
                     }else{
                         res.status(402).json({
