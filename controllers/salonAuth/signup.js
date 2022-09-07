@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const schema = require('../../validators/v1/project');
 const salonSchema = schema.createSalonSchema;
