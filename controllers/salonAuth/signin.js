@@ -31,7 +31,7 @@ const signin = async(req,res) => {
                             code : 200,
                             message : 'salon signed in successfully',
                             token : token,
-                            user
+                            user: {...salon._doc}
                         })
                     }else{
                         res.status(402).json({
@@ -44,7 +44,7 @@ const signin = async(req,res) => {
                     console.log(err);
                     res.status(403).json({
                         code : 403,
-                        message : 'email not found',
+                        message : err.message,
                         status : 'error'
                     })
                 }
