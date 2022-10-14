@@ -27,6 +27,11 @@ const userSchema = new mongoose.Schema({
         required : true,
         unique: true
     },
+    confirmation_id : {
+        type: String,
+        required : true,
+        unique: true
+    },
     is_deleted : {
         type : Boolean,
         default : false,

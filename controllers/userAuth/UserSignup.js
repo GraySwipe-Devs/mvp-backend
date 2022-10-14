@@ -5,6 +5,8 @@ const schema = require("../../validators/v1/project");
 const userSchema = schema.createUserSchema;
 const User = require("../../models/user.model");
 const { v4: uuidv4 } = require("uuid");
+const random = require('random-string-alphanumeric-generator');
+
 
 const UserSignup = async (req, res) => {
   const {
@@ -16,24 +18,23 @@ const UserSignup = async (req, res) => {
     comfirmPassword,
   } = req.body;
 
-  const data = {
-    firstName,
-    lastName,
-    email,
-    phoneNumber,
-    plainTextPassword,
-    comfirmPassword,
-  };
-
   try {
     const password = await bcrypt.hash(plainTextPassword, 10); // salt is 10;
+    
+    let confirmation_id
 
+    do{
+      confirmation_id = random.randomAlphanumeric(4)
+    }
+    while( await User.findOne({confirmation_id}) )
+    
     const newUser = await User.create({
       firstName,
       lastName,
       email,
       phoneNumber,
       password,
+      confirmation_id,
       user_id: uuidv4(),
     });
 

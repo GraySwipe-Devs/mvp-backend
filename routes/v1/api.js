@@ -13,6 +13,7 @@ const userUpdate = require("./user/updateFromUser.user");
 
 const fetchBookingUser = require('./user/fetchBookingUser.user');
 const fetchBookingSalon = require('./salon/fetchBookingSalon.salon')
+const fetchBookingId = require('./salon/fetchBookingId.salon')
 
 const createBooking = require('./user/createBooking.user');
 // const updateBookingUser = require('./')
@@ -33,6 +34,7 @@ router.use("/v1/user/booking/update", userUpdate)
 // fetching bookings
 router.use("/v1/user/fetchBooking" , fetchBookingUser);
 router.use("/v1/salon/fetchBooking", fetchBookingSalon);
+router.use("/v1/salon/fetchBooking", fetchBookingId);
 
 //creating booking
 router.use("/v1/user/createbooking" , createBooking)
