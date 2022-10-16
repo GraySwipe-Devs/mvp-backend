@@ -34,17 +34,17 @@ const UserLogin = async(req,res) => {
                             user
                         })
                     }else{
-                        res.status(402).json({
-                            message : 'wrong password',
-                            code : 402
+                        res.status(404).json({
+                            message : 'user not found',
+                            code : 404
                         })
                     }
                     
                 }catch(err){
                     console.log(err);
-                    res.status(403).json({
-                        code : 403,
-                        message : 'email not found',
+                    res.status(404).json({
+                        code : 404,
+                        message : 'user not found',
                         status : 'error'
                     })
                 }
