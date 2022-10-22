@@ -2,7 +2,6 @@ const Joi = require("joi");
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const schema = require("../../validators/v1/project");
-const userSchema = schema.createUserSchema;
 const User = require("../../models/user.model");
 const { v4: uuidv4 } = require("uuid");
 const random = require('random-string-alphanumeric-generator');
@@ -45,9 +44,10 @@ const UserSignup = async (req, res) => {
     );
 
     res.status(200).json({
-      status: "success",
       message: "user registered successfully",
       code: 200,
+      token : token,
+      newUser
     });
   } catch (err) {
     console.log(err);
@@ -55,7 +55,7 @@ const UserSignup = async (req, res) => {
     res.status(400).json({
       status: "failed",
       message: "email or phone already exists",
-      code: 200,
+      code: 400,
     });
   }
 };

@@ -13,6 +13,10 @@ const bookingSchema = new mongoose.Schema({
         type : String,
         required: true,
     },
+    salon_name: {
+        type: String,
+        required: true,
+    },
     booking_id: {
         type: String,
         requried: true,
