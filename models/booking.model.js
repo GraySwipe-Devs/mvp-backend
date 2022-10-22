@@ -2,9 +2,16 @@ const mongoose = require("mongoose");
 const bookingSchema = new mongoose.Schema({
     user_id: {
         type : String,
+        required: true,
+    },
+    confirmation_id : {
+        type : String,
+        required: true,
+        unique: true
     },
     salon_id: {
         type : String,
+        required: true,
     },
     booking_id: {
         type: String,
