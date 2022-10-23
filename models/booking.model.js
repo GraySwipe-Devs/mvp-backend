@@ -7,7 +7,6 @@ const bookingSchema = new mongoose.Schema({
     confirmation_id : {
         type : String,
         required: true,
-        unique: true
     },
     salon_id: {
         type : String,
