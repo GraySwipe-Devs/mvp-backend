@@ -2,7 +2,7 @@ const Booking = require('../../models/booking.model')
 const { v4: uuidv4 } = require('uuid');
 
 const createBooking = async(req,res)=>{
-    const {user_id, salon_id ,salon_name, amount, timing, confirmation_id} = req.body;
+    const {user_id, salon_id ,salon_name, amount, timing, confirmation_id, services} = req.body;
     let booking_id_server = uuidv4()
     try{
 
@@ -13,7 +13,8 @@ const createBooking = async(req,res)=>{
             booking_id : booking_id_server, 
             amount, 
             timing,
-            confirmation_id  
+            confirmation_id,
+            services
         })
 
         res.status(200).json({

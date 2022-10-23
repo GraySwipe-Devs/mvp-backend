@@ -30,6 +30,12 @@ const bookingSchema = new mongoose.Schema({
         type: String,
         requried: true
     }
+
+    ,
+    services : [{
+        type: String,
+        requried: true
+    }]
     ,
     status : {
         type: String,
