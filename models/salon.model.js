@@ -1,3 +1,4 @@
+const { required } = require("joi");
 const mongoose = require("mongoose");
 const salonSchema = new mongoose.Schema({
     name: {
@@ -20,6 +21,14 @@ const salonSchema = new mongoose.Schema({
     services :{
         type: Map,
         of: String
+    },
+    address : {
+        type: [String],
+        required: true
+    },
+    location : {
+        type: [String],
+        required: true
     },
     password: {
       type: String,
