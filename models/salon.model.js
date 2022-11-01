@@ -30,6 +30,10 @@ const salonSchema = new mongoose.Schema({
         type: [String],
         required: true
     },
+    image : {
+        type: [Buffer],
+        required: true
+    },
     password: {
       type: String,
       required: true,

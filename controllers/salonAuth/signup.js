@@ -7,9 +7,9 @@ const Salon = require('../../models/salon.model')
 const { v4: uuidv4 } = require('uuid');
 
 const signup = async(req,res)=>{
-    const {name, ownerName, email, phoneNumber, password: plainTextPassword, comfirmPassword, location } = req.body;
+    const {name, ownerName, email, phoneNumber, password: plainTextPassword, comfirmPassword, location, images } = req.body;
 
-    const data = {name, ownerName, email, phoneNumber, plainTextPassword, comfirmPassword};
+    const data = {name, ownerName, email, phoneNumber, plainTextPassword, comfirmPassword, images, location};
     let service = {}
     try{
         const password = await bcrypt.hash(plainTextPassword, 10); // salt is 10;
@@ -21,6 +21,7 @@ const signup = async(req,res)=>{
             phoneNumber,
             service,
             password,
+            images,
             salon_id : uuidv4(),
             location
         })
@@ -40,7 +41,7 @@ const signup = async(req,res)=>{
         res.status(400).json({
             status : 'failed',
             message : 'email or phone already exists',
-            code : 200
+            code : 400
         })
     }
 
