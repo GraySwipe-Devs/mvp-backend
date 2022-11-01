@@ -21,7 +21,7 @@ app.use('/api' , apiRoutes )
 const PORT = process.env.PORT || 1337;
 
 app.get('/', (req,res)=> {
-    res.status(200).send("Welcome to gs API")
+    res.status(200).send("Welcome to gs API after base64 images done")
 })
 
 db()
